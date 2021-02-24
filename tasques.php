@@ -61,11 +61,10 @@ function init_tasques(){
         foreach ($tasques as $tasca) {
             echo "<tr>";
             echo "<td style='width:352px; word-break:break-all;'>$tasca[1]</td>";
-            echo "<td >";
-            echo "
-            <form action='' method='post'>
-            <button type='submit' name='esborrar' value='".$tasca[0]."' class='button'>✔</button>
-            </form>";
+            echo "<td>";
+            echo "<form action='' method='post'>";
+            echo "<button type='submit' name='esborrar' value='".$tasca[0]."' class='button'>✔</button>";
+            echo "</form>";
             echo "</td>";
             echo "</tr>";
         }
