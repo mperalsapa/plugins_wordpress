@@ -63,7 +63,7 @@ function init_sessions(){
         }
 
         # Començem a printar el HTML
-        echo "<h1>Administrcio de sessions</h1>";
+        echo "<h1>Administracio de sessions</h1>";
         echo "<form method='POST' action=''>";
 
         # Comprovem si tenim una sessio activa
@@ -83,7 +83,7 @@ function init_sessions(){
         $sessions = mysqli_fetch_all(mysqli_query($connection,$query));
         $totalMinuts = 0;
         # Mostrem les sessions
-        echo "<h1>sessions</h1>";
+        echo "<h1>Sessions</h1>";
         echo "<table style='table-layout: fixed;'>";
         echo "<tr><td>Inici de sessio</td><td>Fi de sessio</td><td>Duracio de sessio (minuts)</td></tr>";
         foreach ($sessions as $sessio) {
