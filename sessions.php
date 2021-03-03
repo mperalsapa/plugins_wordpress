@@ -74,14 +74,14 @@ function init_sessions(){
         if ($resultat == array()) {
             echo "<input type='submit' name='iniciar' value='INICIAR SESSIO' class='button'>";
         } else {
-            echo "<input type='submit' name='acabar' value='ACABAR SESSIONS' class='button'>";
+            echo "<input type='submit' name='acabar' value='ACABAR SESSIO' class='button'>";
         }
         echo "</form>";
 
         # Agafem la informacio de les sessions
         $query = "SELECT id_sessio, inici_sessio, fi_sessio, TIMESTAMPDIFF(MINUTE, inici_sessio, fi_sessio) AS 'Minuts' FROM wp_sessions";
         $sessions = mysqli_fetch_all(mysqli_query($connection,$query));
-
+        $totalMinuts = 0;
         # Mostrem les sessions
         echo "<h1>sessions</h1>";
         echo "<table style='table-layout: fixed;'>";
@@ -92,7 +92,9 @@ function init_sessions(){
             echo "<td style='width:150px; word-break:break-all;'>$sessio[2]</td>";
             echo "<td style='width:150px; word-break:break-all;'>$sessio[3]</td>";
             echo "</tr>"; 
+            $totalMinuts += $sessio[3];
         }
+        echo "<tr><td>Temps Total</td><td></td><td>$totalMinuts</td></tr>";
         echo "</table>";
         mysqli_close($connection);
         
@@ -104,5 +106,4 @@ function init_sessions(){
 
     }
 }
-
 ?>
